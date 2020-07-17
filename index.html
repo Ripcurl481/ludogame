@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "stylesheet" type="text/css" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet"> 
+    <title>Document</title>
+</head>
+<body>
+ <div class="container">
+     <h1>DICE GAME</h1>
+     <div class="dice">
+         <p>Player 1</p>
+         <img src = "./image/Alea_1.png" id = 'check1'>
+     </div>
+     <div class="dice">
+        <p>Player 2</p>
+        <img src= "./image/Alea_6.png" id= "check2">
+    </div>
+    <div>
+   <button onclick=" ludogame()">Roll Dice</button>
+    </div>
+
+    <div class =  "roll">
+        <div id = "Player-panel">Current </div>
+        <div id = "current1" >0</div>
+    </div>
+    <div class =  "roll">
+        <div id = "Player-panel2">Current</div>
+        <div id = "current2">0</div>
+    </div>
+    
+ </div>  
+ <script>
+  ludogame = () => {
+  const Play1 = Math.floor(Math.random() * 6) +1;
+  const play1dice = `image/Alea_${Play1}.png`;
+  document.getElementById('check1').setAttribute('src', play1dice);
+ 
+  const Play2 = Math.floor(Math.random() * 6) +1;
+  const play2dice = `image/Alea_${Play2}.png`;
+  document.getElementById('check2').setAttribute('src', play2dice);
+
+  document.getElementById('current1').innerHTML =  Play1;
+  document.getElementById('current2').innerHTML =  Play2;
+
+  if(Play1 > Play2) {
+      document.querySelector('h1').innerHTML ="Player 1 Won"
+  }else if(Play1 < Play2) {
+      document.querySelector('h1').innerHTML = "Player 2 Won"
+  }else {
+      document.querySelector('h1').innerHTML = "Draw";
+  }
+}
+ </script>
+</body>
+</html>
